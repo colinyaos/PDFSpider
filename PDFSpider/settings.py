@@ -72,7 +72,7 @@ LOG_FILE = 'logfile.log'
 #    'scrapy.pipelines.files.PdfSpiderPipeline': 100,
 # }
 
-FILES_STORE = '/Users/colinyao/Desktop/Code/cresicor/PDFSpider/PDFs'
+FILES_STORE = '/Users/colinyao/Desktop/Code/cresicor/PDFSpider/Math Problems'
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

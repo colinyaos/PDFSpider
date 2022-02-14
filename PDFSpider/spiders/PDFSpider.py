@@ -34,29 +34,19 @@ class PDFSpider(scrapy.Spider):
                 print(f"Invalid URL passed, {e}.")
                 pass
 
+            parsed_item_url = up.urlparse(item_url)
+            
+            pdf_name = parsed_item_url.path
 
-            domain_extensions = [".com", ".org", ".net", ".gov", ".ca"]
-            website_end_token = 200 
-            # the longest web address is less than 100 chars, 
-            # so this should always work. 
-
-            for e in domain_extensions:
-                try:
-                    website_end_token = min(item_url.index(e), website_end_token)
-                except ValueError:
-                    # print("Not a valid website. ")        
-                    pass        
-
-            if website_end_token == 200: 
-                # This implies that the website ending follows none of the endings given above. 
-                print("Website ending invalid. ")
-                return
-
-            pdf_name = item_url[website_end_token + item_url[website_end_token:].index("/") + 1:]
+            pdf_name = pdf_name.strip("/")
             pdf_name = pdf_name.replace("/", "-") 
             # I thought it better to avoid using slashes in filenames. 
 
-            write_dir = os.path.join(os.getcwd(), "PDFs")
+
+
+
+
+            write_dir = os.path.join(os.getcwd(), "Math Problems")
             # Writes to the "PDFs" directory in PDFSpider's home dir. 
             # To change, simply reconfigure the relative path. 
 
