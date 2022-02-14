@@ -6,17 +6,14 @@ import urllib.parse as up
 
 class PDFSpider(scrapy.Spider):
     name = "PDFSpider"
-    # start_urls = [
-    #     'https://www.hmmt.org/www/archive/251',
-    # ]
-
-    # start_urls = [
-    #     'https://cms.math.ca/competitions/cmo/',
-    # ]
 
     start_urls = [
-        'https://www1.nyc.gov/site/nypd/about/about-nypd/manual.page',
+        'https://cms.math.ca/competitions/cmo/',
     ]
+
+    def __init__(self, url = start_urls[0], *args, **kwargs):
+        super(PDFSpider, self).__init__(*args, **kwargs)
+        self.start_urls = [url]
 
     def parse(self, response):
         origin_url = self.start_urls[0]
