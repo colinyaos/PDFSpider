@@ -5,9 +5,19 @@
 
 
 # useful for handling different item types with a single interface
-from itemadapter import ItemAdapter
+# from itemadapter import ItemAdapter
+import requests
 
-
-class PdfspiderPipeline:
+class PdfSpiderPipeline:
     def process_item(self, item, spider):
+        item_url = item[2:]
+
+        r = requests.get(item_url, stream = True)
+
+        with open("test.pdf","wb") as pdf:
+            for chunk in r.iter_content(chunk_size=1024):
+                # writing one chunk at a time to pdf file
+                if chunk:
+                    pdf.write(chunk)
+
         return item

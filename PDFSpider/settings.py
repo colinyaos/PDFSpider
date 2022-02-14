@@ -62,9 +62,9 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {
-   'scrapy.pipelines.files.FilesPipeline': 1,
-}
+# ITEM_PIPELINES = {
+#    'scrapy.pipelines.files.PdfSpiderPipeline': 100,
+# }
 
 FILES_STORE = '/Users/colinyao/Desktop/Code/cresicor/PDFSpider/PDFs'
 
